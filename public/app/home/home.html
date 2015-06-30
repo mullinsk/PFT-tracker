@@ -1,0 +1,30 @@
+<table class="table">
+<!-- 	<tr>
+		<th>Date</th>
+		<th>fev1</th>
+		<th>fvc</th>
+		<th>fef 25-75</th>
+		<th>View More</th>
+	</tr>	
+	<tr ng-repeat="pft in vm.pfts">
+		<td>{{pft.date}}</td>
+		<td>{{pft.fev}}</td>
+		<td>{{pft.fvc}}</td>
+		<td>{{pft.fef}}</td>
+		<td><a href="#/detail/{{pft._id}}">View More</a></td>
+
+	</tr> -->
+	<div ng-show="!vm.pfts">data unretrieved</div>
+</table>
+<form ng-submit="vm.addPFT()">
+	<div><label>Date</label><input required type="date" ng-model="vm.newP.date"></div>
+	<div><label>FVC</label><input required type="text"  pattern="([0-9]+\.)?[0-9]+"ng-model="vm.newP.fvc"></div>
+	<div><label>FVC P</label><input required type="text" pattern="([0-9]+\.)?[0-9]+" ng-model="vm.newP.fvcp" value="3.84"></div>
+	<div><label>FEV</label><input required type="text" pattern="([0-9]+\.)?[0-9]+" ng-model="vm.newP.fev"></div>
+	<div><label>FEV P</label><input type="text" pattern="([0-9]+\.)?[0-9]+" ng-model="vm.newP.fevp" value="3.33"></div>
+	<div><label>FEF</label><input required type="text" pattern="([0-9]+\.)?[0-9]+" ng-model="vm.newP.fef" value="3.88"></div>
+	<div><label>FEF P</label><input type="text"  pattern="([0-9]+\.)?[0-9]+"ng-model="vm.newP.fefp"></div>
+	<input type="submit" ng.click="vm.addPFT()">
+
+</form>
+{{vm.newP}}
